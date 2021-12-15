@@ -119,7 +119,7 @@ void VescDriver::vescPacketCallback(const boost::shared_ptr<VescPacket const>& p
     state_msg->state.temperature_pcb = values->temp_pcb();
     state_msg->state.current_motor = values->current_motor();
     state_msg->state.current_input = values->current_in();
-    state_msg->state.speed = values->rpm();
+    state_msg->state.speed = values->rpm() - 230;
     state_msg->state.duty_cycle = values->duty_now();
     state_msg->state.charge_drawn = values->amp_hours();
     state_msg->state.charge_regen = values->amp_hours_charged();
