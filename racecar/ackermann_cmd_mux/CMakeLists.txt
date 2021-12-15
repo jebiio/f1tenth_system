@@ -52,3 +52,8 @@ install(DIRECTORY launch
 install(DIRECTORY param
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
+
+catkin_install_python(
+	PROGRAMS scripts/talker.py scripts/throttle_control.py scripts/steering_control.py
+	DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
