@@ -1,28 +1,12 @@
-# driver_base
-You'll also need the driver_base package, , you could get this package via:
+# f1
 
-```sudo apt-get install ros-<distro>-driver-base```
+## Developmen Document
 
-# f110_system
-Code/Drivers onboard f110 race cars.
+* [F1tenth - Learn](https://docs.google.com/presentation/d/16Uzvz88pJjHkiSQfUj8_TsvsTvU3RVHSWQ_VYkmFNsk/edit)
+* [F1tenth - Build](https://docs.google.com/presentation/d/1-CjTojXaHl1dYekMv4y2DxEINZc3bux3IXxh3eqn-4M/edit#slide=id.p)
 
-## ackermann_msgs
-The ROS message definitions for ackermann steering.
+## TODO
 
-## hokuyo_node
-The driver for Hokuyo 10LX and Hokuyo 30LX.
-
-## joystick_drivers
-The driver for Linux compatible joysticks
-
-## racecar
-The package including launch files handling starting the car, and the parameters for Odometry tuning, motor/servo settings.
-
-## serial
-A cross-platform library for interfacing with rs-232 serial like ports written in C++.
-
-## vesc
-The package handling communication with the VESC 6 Plus.
-
-## waypoint_logger
-The node that records the car's current position in the world, requires particle_filter to work.
+- Custom navigator 추가해보기
+  - Custom navigator가 추가될 node 위치 파악 : f1tenth_system 분석
+  - University of Virginia (UVA) 코드 실행해보기 : 
