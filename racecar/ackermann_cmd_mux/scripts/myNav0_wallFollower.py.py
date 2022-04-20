@@ -18,7 +18,7 @@ def laser_callback(data):
     ack_msg.header.stamp = rospy.Time.now()
     # ack_msg.header.frame_id = 'your_frame_here'
     ack_msg.drive.steering_angle = 0.1
-    ack_msg.drive.speed = 2.0
+    ack_msg.drive.speed = 0.0
     pub.publish(ack_msg)
     
 if __name__ == '__main__':
