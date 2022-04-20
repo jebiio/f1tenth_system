@@ -13,8 +13,9 @@ DESIRED_DIST = 0.3
 pub = rospy.Publisher('high_level/ackermann_cmd_mux/input/nav_0',
                       AckermannDriveStamped, queue_size=1)
 
-def laser_callback(ranges):
-
+def laser_callback(data):
+    
+    ranges = data.ranges
     distance_front = ranges[len(ranges)//2]
     distance_side = ranges[len(ranges)//6]
     distance_fonrt_side = ranges[len(ranges)//3]
@@ -39,7 +40,7 @@ def laser_callback(ranges):
     ack_msg = AckermannDriveStamped()
     ack_msg.header.stamp = rospy.Time.now()
     # ack_msg.header.frame_id = 'your_frame_here'
-    ack_msg.drive.steering_angle = steering_angle
+    ack_msg.drive.steering_angle = -steering_angle
     ack_msg.drive.speed = SPEED
     pub.publish(ack_msg)
     
