@@ -31,7 +31,7 @@
     <arg name="nodelet_manager_name" value="ackermann_cmd_mux_nodelet_manager" />
     <arg name="config_file" value="$(find racecar)/config/$(arg racecar_version)/high_level_mux.yaml" />
   </include>
-  <node name="talker" pkg="ackermann_cmd_mux" type="talker.py" />
+  <node name="myNav0_wallFollower" pkg="ackermann_cmd_mux" type="myNav0_wallFollower.py" />
 
   <!-- Low level MUX -->
   <include file="$(find ackermann_cmd_mux)/launch/standalone.launch" ns="low_level">
