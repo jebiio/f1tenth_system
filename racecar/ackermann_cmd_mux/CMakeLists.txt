@@ -54,6 +54,6 @@ install(DIRECTORY param
 )
 
 catkin_install_python(
-	PROGRAMS scripts/talker.py
+	PROGRAMS scripts/myNav0_wallFollower.py.py
 	DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
