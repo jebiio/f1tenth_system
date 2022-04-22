@@ -6,9 +6,9 @@ from sensor_msgs.msg import LaserScan
 from sensor_msgs.msg import Joy
 from ackermann_msgs.msg import AckermannDriveStamped
 
-SPEED = 2.
+SPEED = 1.
 LIDAR_FREQ = 40
-DESIRED_DIST = 0.3
+DESIRED_DIST = 0.2
 
 pub = rospy.Publisher('high_level/ackermann_cmd_mux/input/nav_0',
                       AckermannDriveStamped, queue_size=1)
@@ -18,8 +18,8 @@ def laser_callback(data):
     ranges = data.ranges
     distance_front = ranges[len(ranges)//2]
     distance_side = ranges[len(ranges)//6]
-    distance_fonrt_side = ranges[len(ranges)//3]
-    alpha = math.atan((distance_fonrt_side*math.cos(math.pi/4)-distance_side) / distance_fonrt_side*math.sin(math.pi/4))
+    distance_fonrt_side = ranges[(len(ranges)//6)+80]
+    alpha = math.atan((distance_fonrt_side*math.cos(math.radians(20))-distance_side) / distance_fonrt_side*math.sin(math.radians(20)) )
     distance_from_wall = distance_side*math.cos(alpha)
     future_dist_from_wall = distance_from_wall + (SPEED*math.sin(alpha)/LIDAR_FREQ)
     
@@ -40,7 +40,7 @@ def laser_callback(data):
     ack_msg = AckermannDriveStamped()
     ack_msg.header.stamp = rospy.Time.now()
     # ack_msg.header.frame_id = 'your_frame_here'
-    ack_msg.drive.steering_angle = -steering_angle
+    ack_msg.drive.steering_angle = -2*steering_angle
     ack_msg.drive.speed = SPEED
     pub.publish(ack_msg)
     
