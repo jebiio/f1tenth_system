@@ -54,6 +54,6 @@ install(DIRECTORY param
 )
 
 catkin_install_python(
-	PROGRAMS scripts/myNav0_wallFollower.py
+	PROGRAMS scripts/cmd_to_ack.py
 	DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
